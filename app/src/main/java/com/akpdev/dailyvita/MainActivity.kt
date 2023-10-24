@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import com.akpdev.dailyvita.databinding.ActivityMainBinding
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

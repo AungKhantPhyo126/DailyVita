@@ -70,6 +70,8 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
 
     implementation("com.github.skydoves:balloon:1.6.1")
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
+
 
 
 }

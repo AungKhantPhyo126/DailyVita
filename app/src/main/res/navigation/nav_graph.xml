@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_dietSelectionFragment_to_allergiesFragment"
             app:destination="@id/allergiesFragment" />
+        <argument
+            android:name="selectedHealthConcerns"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/allergiesFragment"
@@ -35,9 +38,26 @@
         <action
             android:id="@+id/action_allergiesFragment_to_getPersonalizedVitaminFragment"
             app:destination="@id/getPersonalizedVitaminFragment" />
+        <argument
+            android:name="selectedHealthConcerns"
+            app:argType="string[]" />
+        <argument
+            android:name="selectedDiets"
+            app:argType="string[]" />
+
     </fragment>
     <fragment
         android:id="@+id/getPersonalizedVitaminFragment"
         android:name="com.akpdev.dailyvita.question.GetPersonalizedVitaminFragment"
-        android:label="GetPersonalizedVitaminFragment" />
+        android:label="GetPersonalizedVitaminFragment" >
+        <argument
+            android:name="selectedHealthConcerns"
+            app:argType="string[]" />
+        <argument
+            android:name="selectedDiets"
+            app:argType="string[]" />
+        <argument
+            android:name="selectedAllergies"
+            app:argType="string[]" />
+    </fragment>
 </navigation>

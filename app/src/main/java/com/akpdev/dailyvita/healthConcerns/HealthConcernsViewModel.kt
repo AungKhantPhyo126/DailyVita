@@ -7,8 +7,13 @@ import androidx.lifecycle.ViewModel
 import com.akpdev.dailyvita.R
 import com.akpdev.dailyvita.util.swap
 import com.google.gson.Gson
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HealthConcernsViewModel : ViewModel() {
+@HiltViewModel
+class HealthConcernsViewModel @Inject constructor(
+    private val gson: Gson
+) : ViewModel() {
     private val _healthConcernsData = MutableLiveData<List<HealthConcerns>>()
     val healthConcerns: LiveData<List<HealthConcerns>>
         get() = _healthConcernsData
@@ -16,7 +21,6 @@ class HealthConcernsViewModel : ViewModel() {
     fun getHealthConcernsData(context: Context) {
         val rawResource = context.resources.openRawResource(R.raw.healthconcern)
         val jsonString = rawResource.bufferedReader().use { it.readText() }
-        val gson = Gson()
         val myData = gson.fromJson(jsonString, HealthConcernsData::class.java)
         if (_healthConcernsData.value.isNullOrEmpty()){
             _healthConcernsData.value = myData.data.toList()
@@ -44,4 +48,5 @@ class HealthConcernsViewModel : ViewModel() {
     fun swapPosition(draggedItemId: Int, targetItemId: Int) {
         _prioritizeData.value = _prioritizeData.value?.apply { swap(draggedItemId, targetItemId) }
     }
+
 }

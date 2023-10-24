@@ -23,10 +23,12 @@
         app:layout_constraintTop_toBottomOf="@id/tv_question_one"
         android:orientation="vertical">
         <RadioButton
+            android:id="@+id/rbtn_q1_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yes"/>
         <RadioButton
+            android:id="@+id/rbtn_q1_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No"/>
@@ -52,10 +54,12 @@
         app:layout_constraintTop_toBottomOf="@id/tv_question_two"
         android:orientation="vertical">
         <RadioButton
+            android:id="@+id/rbtn_q2_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yes"/>
         <RadioButton
+            android:id="@+id/rbtn_q2_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No"/>
@@ -81,13 +85,20 @@
         app:layout_constraintTop_toBottomOf="@id/tv_question_three"
         android:orientation="vertical">
         <RadioButton
+            android:id="@+id/rbtn_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes"/>
+            android:text="0-1"/>
         <RadioButton
+            android:id="@+id/rbtn_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No"/>
+            android:text="2-5"/>
+        <RadioButton
+            android:id="@+id/rbtn_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5+"/>
     </RadioGroup>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_finish"

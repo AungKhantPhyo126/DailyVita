@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.akpdev.dailyvita.R
 import com.akpdev.dailyvita.databinding.FragmentDietSelectionBinding
 import com.skydoves.balloon.ArrowOrientation
@@ -18,10 +19,12 @@ import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.showAlignEnd
 import com.skydoves.balloon.showAlignStart
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DietSelectionFragment : Fragment() {
     private val viewModel by viewModels<DietSelectionViewModel>()
+    private val args by navArgs<DietSelectionFragmentArgs>()
     private var _binding: FragmentDietSelectionBinding? = null
     val binding: FragmentDietSelectionBinding
         get() = _binding!!
@@ -64,11 +67,14 @@ class DietSelectionFragment : Fragment() {
         viewModel.getDietData(requireActivity().applicationContext)
 
         viewModel.dietLiveData.observe(viewLifecycleOwner) {
+            binding.btnNext.isEnabled = it.any { it.isSelected }
             adapter.submitList(it)
         }
 
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(DietSelectionFragmentDirections.actionDietSelectionFragmentToAllergiesFragment())
+            findNavController().navigate(DietSelectionFragmentDirections.actionDietSelectionFragmentToAllergiesFragment(
+                args.selectedHealthConcerns,
+                viewModel.dietLiveData.value?.filter { it.isSelected }?.map { it.name }.orEmpty().toTypedArray()))
         }
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()

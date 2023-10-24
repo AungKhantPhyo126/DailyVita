@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.akpdev.dailyvita.databinding.FragmentHealthConcernSelectionBinding
 import com.akpdev.dailyvita.util.createChip
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Collections
 
-
+@AndroidEntryPoint
 class HealthConcernsSelectionFragment : Fragment() {
     private val viewModel by viewModels<HealthConcernsViewModel>()
     private var _binding: FragmentHealthConcernSelectionBinding? = null
@@ -57,6 +58,7 @@ class HealthConcernsSelectionFragment : Fragment() {
         val adapter = PrioritizeRecyclerAdapter()
         binding.rvPrioritize.adapter = adapter
         viewModel.prioritizeData.observe(viewLifecycleOwner) {
+            binding.btnNext.isEnabled = it.isNotEmpty()
             adapter.submitList(it)
             Log.i("myCustomList", it.toString())
         }
@@ -95,7 +97,7 @@ class HealthConcernsSelectionFragment : Fragment() {
 
 
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(HealthConcernsSelectionFragmentDirections.actionHealthConcernsSelectionFragmentToDietSelectionFragment())
+            findNavController().navigate(HealthConcernsSelectionFragmentDirections.actionHealthConcernsSelectionFragmentToDietSelectionFragment(viewModel.prioritizeData.value?.map { it.name }.orEmpty().toTypedArray()))
         }
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()

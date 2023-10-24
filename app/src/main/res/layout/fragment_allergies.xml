@@ -24,8 +24,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/rv_prioritize"
-            android:layout_width="0dp"
+            android:id="@+id/til_allergies"
+            android:layout_width="match_parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_medium"
@@ -34,20 +34,33 @@
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title">
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            >
 
             <AutoCompleteTextView
+                android:id="@+id/act_allergy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="SomeThing" />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/chipContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_allergies"
+            app:flexWrap="wrap">
 
+        </com.google.android.flexbox.FlexboxLayout>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_xlarge"
             android:text="@string/next"
+            android:enabled="false"
             style="@style/ButtonCommonStyle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
