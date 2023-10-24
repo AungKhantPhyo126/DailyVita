@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.akpdev.dailyvita.databinding.FragmentGetPersonalizedVitaminBinding
+import timber.log.Timber
 
 class GetPersonalizedVitaminFragment:Fragment() {
     private val viewModel by viewModels<GetPersonalizedVitaminViewModel>()
@@ -44,7 +45,7 @@ class GetPersonalizedVitaminFragment:Fragment() {
             val isExposure = "isExposure:${it.isDailyExposure?:""}\n"
             val isSmoke = "isSmoke:${it.isSmoke?:""}\n"
             val alcohol = "alcohol:${it.alcohol}\n"
-            Log.i("print Result" ,healthConcerns+diets+allergies+isExposure+isSmoke+alcohol)
+            Timber.i(healthConcerns+diets+allergies+isExposure+isSmoke+alcohol)
         }
     }
 

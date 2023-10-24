@@ -52,7 +52,7 @@ class AllergiesFragment : Fragment() {
                 binding.actAllergy.text.clear()
             }
             val selectedAllergies = allergyList.filter { it.isSelected }
-            binding.btnNext.isEnabled = selectedAllergies.isEmpty()
+            binding.btnNext.isEnabled = selectedAllergies.isNotEmpty()
 
             if (selectedAllergies.isEmpty().not()){
                 binding.chipContainer.removeAllViews()
