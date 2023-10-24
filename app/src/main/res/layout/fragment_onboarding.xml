@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.viewpager2.widget.ViewPager2
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_small"
+        android:text="@string/onboard_welcome_title"
+        android:textAppearance="@style/TextAppearance.DailyVita.Headline6"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_welcome_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_small"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.DailyVita.Body2"
+        android:text="@string/onBoard_welcome_message"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+        android:id="@+id/iv_onboard_illustration"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:src="@drawable/onboard_illustration"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginStart="@dimen/dimen_medium"
+        android:layout_marginEnd="@dimen/dimen_medium"
+        android:layout_marginTop="@dimen/dimen_xlarge"/>
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_medium"
+        android:textAppearance="@style/TextAppearance.DailyVita.Body2"
+        android:text="We will ask couple of questions to better understand your vitamin need"
+        app:layout_constraintTop_toBottomOf="@id/iv_onboard_illustration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_get_started"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/get_started"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        android:layout_marginTop="@dimen/dimen_large"
+        android:layout_marginStart="@dimen/dimen_medium"
+        android:layout_marginEnd="@dimen/dimen_medium"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

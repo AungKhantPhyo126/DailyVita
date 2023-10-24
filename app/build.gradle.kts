@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -34,7 +37,6 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures{
-        dataBinding = true
         viewBinding = true
     }
 }
@@ -61,5 +63,13 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     implementation("com.google.code.gson:gson:2.10.1")
+
+    //Dagger Hilt
+    val hilt_version = "2.46"
+    implementation("com.google.dagger:hilt-android:$hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    implementation("com.github.skydoves:balloon:1.6.1")
+
 
 }

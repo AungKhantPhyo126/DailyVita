@@ -1,4 +1,4 @@
-package com.akpdev.dailyvita.onboarding
+package com.akpdev.dailyvita.question
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,31 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.akpdev.dailyvita.databinding.FragmentOnboardingBinding
+import com.akpdev.dailyvita.databinding.FragmentGetPersonalizedVitaminBinding
 
-class FragmentOnBoarding:Fragment() {
-    private var _binding:FragmentOnboardingBinding? = null
-    val binding: FragmentOnboardingBinding
+class GetPersonalizedVitaminFragment:Fragment() {
+    private var _binding: FragmentGetPersonalizedVitaminBinding? = null
+    val binding: FragmentGetPersonalizedVitaminBinding
         get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentOnboardingBinding.inflate(inflater).also {
-            _binding  = it
+        return FragmentGetPersonalizedVitaminBinding.inflate(inflater).also {
+            _binding = it
         }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnGetStarted.setOnClickListener {
-            findNavController().navigate(FragmentOnBoardingDirections.actionFragmentOnBoardingToHealthConcernsSelectionFragment())
+
+        binding.btnFinish.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding=null
+        _binding = null
     }
 }

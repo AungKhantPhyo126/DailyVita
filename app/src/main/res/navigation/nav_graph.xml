@@ -15,5 +15,29 @@
     <fragment
         android:id="@+id/healthConcernsSelectionFragment"
         android:name="com.akpdev.dailyvita.healthConcerns.HealthConcernsSelectionFragment"
-        android:label="HealthConcernsSelectionFragment" />
+        android:label="HealthConcernsSelectionFragment" >
+        <action
+            android:id="@+id/action_healthConcernsSelectionFragment_to_dietSelectionFragment"
+            app:destination="@id/dietSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dietSelectionFragment"
+        android:name="com.akpdev.dailyvita.diet.DietSelectionFragment"
+        android:label="DietSelectionFragment" >
+        <action
+            android:id="@+id/action_dietSelectionFragment_to_allergiesFragment"
+            app:destination="@id/allergiesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allergiesFragment"
+        android:name="com.akpdev.dailyvita.allergies.AllergiesFragment"
+        android:label="AllergiesFragment" >
+        <action
+            android:id="@+id/action_allergiesFragment_to_getPersonalizedVitaminFragment"
+            app:destination="@id/getPersonalizedVitaminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/getPersonalizedVitaminFragment"
+        android:name="com.akpdev.dailyvita.question.GetPersonalizedVitaminFragment"
+        android:label="GetPersonalizedVitaminFragment" />
 </navigation>
