@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Daily Vita</string>
+    <string name="onBoard_welcome_message">Hello, We are here to make your life healthier and happier</string>
+    <string name="onboard_welcome_title">Welcome To Daily Vita</string>
+    <string name="get_started">Get Started</string>
+    <string name="prioritize">Prioritize</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+</resources>

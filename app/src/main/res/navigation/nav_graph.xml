@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentOnBoarding">
+
+    <fragment
+        android:id="@+id/fragmentOnBoarding"
+        android:name="com.akpdev.dailyvita.onboarding.FragmentOnBoarding"
+        android:label="FragmentOnBoarding" >
+        <action
+            android:id="@+id/action_fragmentOnBoarding_to_healthConcernsSelectionFragment"
+            app:destination="@id/healthConcernsSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/healthConcernsSelectionFragment"
+        android:name="com.akpdev.dailyvita.healthConcerns.HealthConcernsSelectionFragment"
+        android:label="HealthConcernsSelectionFragment" />
+</navigation>
